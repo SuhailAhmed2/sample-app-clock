@@ -1,0 +1,83 @@
+<div class="background-color-forlayout">
+<div class="row">
+    <div class="col-2">
+        <!-- <div style="font-size: larger;">Time</div> -->
+    </div>
+    <div class="col-10 cs-border">
+        <div class="container-fluid">
+            <div class="row" >
+                <div class="col-2 cs-border " *ngFor="let dateKey of allDayKeys">
+                    <div class="task-list">                
+                        <div class="date-cell">
+                            {{ (dateKey | date :'EEEE')?.slice(0,3) }} 
+                            <br>
+                             {{ dateKey | date :'MMMM d'}} 
+                        </div>
+                    </div>
+                    
+                    
+
+                    <!-- {{ dateKey | date :'MMMM d'}}  -->
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-container *ngFor="let singleTask of tasks;index as taskIndex">
+
+
+    <div class="row">
+        <div class="col-2 clock-margin">            
+            <!-- <div class="task-list">
+                <div class="time-cell">
+                    {{singleTask?.heading}}
+                </div>
+            </div> -->
+            <app-clock></app-clock>
+            <!-- <div class="clock">
+                <div class="hour-hand morning">
+                    <div class="hand-inner"></div>
+                </div>
+                <div class="hour-hand afternoon">
+                    <div class="hand-inner"></div>
+                </div>
+                <div class="period-indicator">AM</div>
+            </div> -->
+            
+            
+        </div>
+        <div class="col-10 cs-border">
+            <div class="row">
+                <ng-container *ngFor="let dayKey of allDayKeys">
+                    <div class="col-2 cs-border">
+                        <app-task [taskDetails]="singleTask | getTaskFromDatekey : taskIndex : dayKey"></app-task>
+                    </div>
+                </ng-container>
+                <!-- <div class="col-2 cs-border">
+                    <app-task></app-task>
+                </div>
+                <div class="col-2 cs-border">
+                    <app-task></app-task>
+                </div>
+                <div class="col-2 cs-border">
+                    <app-task></app-task>
+                </div>
+                <div class="col-2 cs-border">
+                    <app-task></app-task>
+                </div> -->
+
+                <!-- <div class="col-2 cs-border">
+                    <app-task></app-task>
+                </div> -->
+
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+</ng-container>
+</div>

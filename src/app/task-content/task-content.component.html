@@ -1,0 +1,40 @@
+<div class="card-content" *ngIf="taskContent.taskType!=='EmptyTask'">   
+    <img src="assets/icon6.svg" width="30px" *ngIf="!showTaskDetails && taskContent.taskType=='PickupAndDrop'">
+    <img src="assets/test2.svg" width="30px" *ngIf="!showTaskDetails && taskContent.taskType=='LabReport'">
+     
+    <ng-container *ngIf="showTaskDetails">   
+        <p class="card-title">{{taskContent.taskType}}</p>
+        <img src="assets/test2.svg" width="30px" *ngIf="taskContent.taskType=='LabReport'">
+        <img src="assets/icon6.svg" width="30px" *ngIf="taskContent.taskType=='PickupAndDrop'">
+            <p>{{taskContent.taskDetails.pickingUpPersonName}}</p>
+     
+        <img src="assets/person1.png" style="width: 30px;height: 30px;">
+        <div class="task-info">
+            <p><i class="fas fa-map-marker-alt"></i> Pickup Location: {{taskContent.taskDetails.pickupLocation}}</p>
+            <p><i class="far fa-clock"></i> {{taskContent.taskDetails.pickupTime}} </p>
+            <!-- <p><i class="fas fa-user"></i> Pickup Person: John Doe</p> -->
+        </div>
+    </ng-container>
+</div>
+
+<div class="card-content" *ngIf="taskContent.taskType=='EmptyTask'">   
+    <img src="assets/no-task.svg" width="30px" >
+   
+    <ng-container *ngIf="showTaskDetails">   
+        <p class="card-title">Task not assigned</p>
+        <!-- <img src="assets/no-task.svg" width="30px" > -->
+    </ng-container>
+</div>
+
+
+<!-- 
+{
+    "taskType": "PickupAndDrop",
+    "taskDetails": {
+        "pickupDate": "2024-05-10",
+        "pickupTime": "00:30 AM",
+        "pickingUpPersonName": "John Doe",
+        "pickupLocation": "Airport",
+        "dropLocation": "Hotel A"
+    }
+}, -->

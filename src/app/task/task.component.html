@@ -1,0 +1,21 @@
+<div class="stacked-cards">
+    <ng-container *ngFor="let singleTaskAtParticularHourInADay of taskDetails;index as taskDetailsIndex">
+        <div class="card" (mouseover)="showContent[taskDetailsIndex]=true"
+            (mouseleave)="showContent[taskDetailsIndex]=false" >
+            <app-task-content [taskContent]="singleTaskAtParticularHourInADay"
+                [showTaskDetails]="showContent[taskDetailsIndex]"></app-task-content>
+        </div>
+    </ng-container>
+</div>
+
+    <!-- <div class="card" (mouseover)="showContentFirstTask=true"  (mouseleave)="showContentFirstTask=false" style="background-color: #cc72e4;">
+                <app-task-content [showTaskDetails]="showContentFirstTask"></app-task-content>
+            </div>
+            <div class="card"  (mouseover)="showContentSecondTask=true"  (mouseleave)="showContentSecondTask=false" style="background-color: #5a309c;">
+                <app-task-content [showTaskDetails]="showContentSecondTask"></app-task-content>
+            </div>
+            <div class="card" (mouseover)="showContentThirdTask=true"  (mouseleave)="showContentThirdTask=false" style="background-color: #3A888F;">
+                <app-task-content [showTaskDetails]="showContentThirdTask"></app-task-content>
+            </div> -->
+
+<!-- {{taskDetails | json}} -->
